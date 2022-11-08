@@ -6,6 +6,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import CTFData from '@/data/CTFData'
 import NewsletterForm from '@/components/NewsletterForm'
+import Image from '@/components/Image'
 
 const MAX_DISPLAY = 5
 
@@ -27,7 +28,7 @@ export default function Home({ posts }) {
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
             <p>Come join our Discord Server!</p>
-            <a href={siteMetadata.discord}><img src="/static/images/discord-logo-blue.svg" alt="Join Our Discord Server!" /></a>
+            <a href={siteMetadata.discord}><Image src="/static/images/discord-logo-blue.svg" alt="Join Our Discord Server!" /></a>
           </p>
         </div>
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
