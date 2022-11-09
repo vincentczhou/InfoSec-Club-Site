@@ -19,7 +19,7 @@ export default function Footer() {
           <SocialIcon kind="ctftime" href={siteMetadata.ctftime} size="6" />
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>Made by {siteMetadata.author}</div>
+          <div>Made by {siteMetadata.dev}</div>
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
