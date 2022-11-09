@@ -3,9 +3,12 @@ import Image from './Image'
 import Link from './Link'
 
 const MemberCard = ({ name, occupation, avatar, href, mdxSource, frontMatter }) => (
-    <div className="md p-4 md:w-1/2" style={{ position: "relative", maxWidth: "544px", maxHeight: "544px" }}>
+    <div
+     className="md p-4 md:w-1/2"
+      style={{ position: "relative", maxWidth: "544px", maxHeight: "544px" }}>
         <div
-            className={`${avatar && 'h-full'
+            className={`${
+                avatar && 'h-full'
                 }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
         >
             {avatar &&

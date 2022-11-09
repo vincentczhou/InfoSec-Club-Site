@@ -28,16 +28,20 @@ export default function Home({ posts }) {
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
             <p>Come join our Discord Server!</p>
-            <a href={siteMetadata.discord}><Image src="/static/images/discord-logo-blue.svg" alt="Join Our Discord Server!" /></a>
+            <a href={siteMetadata.discord}>
+              <Image src="/static/images/discord-logo-blue.svg" alt="Join Our Discord Server!" /></a>
           </p>
         </div>
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Past CTFs
           </h1>
-          <p className="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
+          <p className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
             {CTFData.map((d) => (
-              <p className="my-1 px-2 w-full overflow-hidden xl:my-1 xl:px-2 xl:w-1/2">{d.year}  {d.name}{d.rank !== '' && (<b>  Rank: </b>)} {d.rank} <img src={d.imgSrc} /></p>
+              <p className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+                {d.year} {d.name}
+                {d.rank !== '' && (<b> Rank: </b>)} {d.rank} <img src={d.imgSrc} />
+                </p>
             ))}
           </p>
         </div>

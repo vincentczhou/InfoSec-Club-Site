@@ -6,20 +6,21 @@ import { PageSEO } from '@/components/SEO'
 
 function compare(a, b) {
   const rolenumber = {}
-  rolenumber[ 'President' ] = 1
-  rolenumber[ 'Officer' ] = 2
-  rolenumber[ 'Member' ] = 3
+  rolenumber['President'] = 1
+  rolenumber['Officer'] = 2
+  rolenumber['Member'] = 3
   const a_number = rolenumber[a.frontMatter.role]
   const b_number = rolenumber[b.frontMatter.role]
-  return (a_number == undefined ? Infinity : a_number) -
-    (b_number == undefined ? Infinity : b_number);
+  return (
+    (a_number == undefined ? Infinity : a_number) - (b_number == undefined ? Infinity : b_number)
+  )
 }
 
 export async function getStaticProps() {
   const authors = await getFiles('authors')
   const filesPromise = authors.map((filename) => getFileBySlug('authors', formatSlug(filename)))
   const files = (await Promise.all(filesPromise)).sort(compare)
-  return { props: {members: files }}
+  return { props: { members: files } }
 }
 
 export default function Members({ members }) {
