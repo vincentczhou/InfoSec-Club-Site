@@ -1,4 +1,4 @@
-![Logo](/public/static/images/avatar/default.png)
+![Logo](/public/static/images/avatars/default.png)
 
 # InfoSec Club Site
 

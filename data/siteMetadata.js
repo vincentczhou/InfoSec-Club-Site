@@ -5,7 +5,7 @@ const siteMetadata = {
   description: 'Home to Bellevue College\'s CTF Team!',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: process.env.siteURL,
+  siteUrl: 'https://www.bcinfosec.me',
   siteRepo: 'https://github.com/vincentczhou/InfoSec-Club-Site',
   siteLogo: '/static/avatars/default.png',
   image: '/static/avatars/default.png',
