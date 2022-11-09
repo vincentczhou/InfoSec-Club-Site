@@ -29,6 +29,7 @@ export default function Home({ posts }) {
             {siteMetadata.description}
             <p>Come join our Discord Server!</p>
             <a href={siteMetadata.discord}>
+              
               <Image src="/static/images/discord-logo-blue.svg" alt="Join Our Discord Server!" /></a>
           </p>
         </div>
@@ -38,10 +39,10 @@ export default function Home({ posts }) {
           </h1>
           <p className="-mx-2 flex flex-wrap overflow-hidden xl:-mx-2">
             {CTFData.map((d) => (
-              <p className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
+              <p key={d.name} className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2">
                 {d.year} {d.name}
-                {d.rank !== '' && (<b> Rank: </b>)} {d.rank} <img src={d.imgSrc} />
-                </p>
+                {d.rank !== '' && <b> Rank: </b>} {d.rank} <img src={d.imgSrc} />
+              </p>
             ))}
           </p>
         </div>
