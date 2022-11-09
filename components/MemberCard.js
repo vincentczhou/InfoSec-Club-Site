@@ -5,35 +5,36 @@ import Link from './Link'
 const MemberCard = ({ name, occupation, avatar, href, mdxSource, frontMatter }) => (
   <div
     className="md p-4 md:w-1/2"
-    style={{ position: "relative", maxWidth: "544px", maxHeight: "544px" }}
+    style={{ position: 'relative', maxWidth: '544px', maxHeight: '544px' }}
   >
-      <div
+    <div
       className={`${
         avatar && 'h-full'
       }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
     >
-            {avatar &&
+      {avatar &&
         (href ? (
           <Link href={href} aria-label={`Link to ${name}`}>
             <div
-              className="my-1 px-2 w-full overflow-hidden xl:my-1 xl:px-2 xl:w-1/2"
+              className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2"
               style={{
-                position: "relative",
-                Width: "500px",
-                Height: "500px",
-                display: "flex",
-                justifyContent: "center"
-                        }} >
-                            <Image
-                                alt={name}
-                                src={avatar}
-                                className="object-cover object-center md:h-36 lg:h-48"
-                                objectFit='contain'
-                                width={175}
-                                height={175}
-                            />
-                        </div>
-                    </Link>
+                position: 'relative',
+                Width: '500px',
+                Height: '500px',
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Image
+                alt={name}
+                src={avatar}
+                className="object-cover object-center md:h-36 lg:h-48"
+                objectFit='contain'
+                width={175}
+                height={175}
+              />
+            </div>
+          </Link>
                 ) : (
                     <div classname="my-1 px-2 w-full overflow-hidden xl:my-1 xl:px-2 xl:w-1/2" style={{
                         position: "relative", Width: "500px", Height: "500px", display: "flex",

@@ -29,8 +29,8 @@ export default function Home({ posts }) {
             {siteMetadata.description}
             <p>Come join our Discord Server!</p>
             <a href={siteMetadata.discord}>
-              
-              <Image src="/static/images/discord-logo-blue.svg" alt="Join Our Discord Server!" /></a>
+              <Image src="/static/images/discord-logo-blue.svg" alt="Join Our Discord Server!" />
+            </a>
           </p>
         </div>
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
