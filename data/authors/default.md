@@ -1,6 +1,6 @@
 ---
 name: BC InfoSec
-avatar: /static/images/logo.png
+avatar: /static/images/avatars/default.png
 occupation: Student-Led Organization
 company: Bellevue College
 email: infosec@bellevuecollege.edu
