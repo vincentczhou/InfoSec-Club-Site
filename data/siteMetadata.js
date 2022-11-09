@@ -1,15 +1,15 @@
 const siteMetadata = {
   title: 'Bellevue College InfoSec Club',
-  author: 'Vincent C.',
+  author: 'BC InfoSec',
   headerTitle: 'Bellevue College InfoSec Club',
-  description: 'Home to Bellevue College\'s CTF Team ',
+  description: 'Home to Bellevue College\'s CTF Team!',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
-  image: '/static/images/avatar.png',
-  socialBanner: '',
+  siteUrl: process.env.siteURL,
+  siteRepo: 'https://github.com/vincentczhou/InfoSec-Club-Site',
+  siteLogo: '/static/avatars/default.png',
+  image: '/static/avatars/default.png',
+  socialBanner: '/static/avatars/default.png',
   email: 'infosec@bellevuecollege.edu.com',
   github: 'https://github.com/vincentczhou',
   twitter: '',
@@ -19,7 +19,7 @@ const siteMetadata = {
   discord: 'https://discord.gg/YyZ4aRQBJx',
   instagram: '',
   ctftime: 'https://www.ctftime.com',
-  homepage: 'https://www.bellevuecollege.edu/organizations/list/infosec-club/',
+  homepage: 'https://www.bellevuecollege.edu/organizations/list/infosec-club',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

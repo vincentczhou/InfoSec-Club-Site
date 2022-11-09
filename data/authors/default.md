@@ -6,9 +6,9 @@ company: Bellevue College
 email: infosec@bellevuecollege.edu
 github: https://github.com/vincentczhou
 linkedin:
-instagram: http://www.google.com
-ctftime: http://www.google.com
-homepage: http://www.google.com
+instagram: 
+ctftime: 
+homepage: https://www.bellevuecollege.edu/organizations/list/infosec-club
 specialty: Collab
 role: Officer
 ---

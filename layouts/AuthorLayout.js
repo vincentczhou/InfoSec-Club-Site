@@ -24,8 +24,8 @@ export default function AuthorLayout({ children, frontMatter }) {
               <SocialIcon kind="mail" href={`mailto:${email}`} />
               <SocialIcon kind="github" href={github} />
               <SocialIcon kind="facebook" href={frontMatter.facebook} />
-              <SocialIcon kind="youtube" href={frontMatter.youtube} size="6" />
               <SocialIcon kind="linkedin" href={linkedin} />
+              <SocialIcon kind="youtube" href={frontMatter.youtube} />
               <SocialIcon kind="twitter" href={twitter} />
               <SocialIcon kind="discord" href={frontMatter.discord} />
               <SocialIcon kind="instagram" href={frontMatter.instagram} />
