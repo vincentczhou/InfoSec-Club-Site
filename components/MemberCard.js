@@ -19,8 +19,7 @@ const MemberCard = ({ name, occupation, avatar, href, mdxSource, frontMatter }) 
               className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2"
               style={{
                 position: 'relative',
-                Width: '500px',
-                Height: '500px',
+                Width: '500px',     Height: '500px',
                 display: 'flex',
                 justifyContent: 'center',
               }}
