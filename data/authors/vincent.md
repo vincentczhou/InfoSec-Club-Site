@@ -4,7 +4,7 @@ avatar: /static/images/avatars/vincent.png
 occupation: Student
 company: Bellevue College
 email:
-github: https://github.com/vincentczhou
+github: https://www.github.com/vincentczhou
 linkedin:
 instagram:
 ctftime:

@@ -6,6 +6,48 @@ Built with [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nex
 
 ## Content Guidelines
 
+### Adding CTFs
+
+1. In [/data/CTFData.js](data/CTFdata.js), append a new entry to the end of `CTFData` in the following format:
+
+```javascript
+{
+   name: 'CTF Name', //[Required] Name of CTF
+   id: 1234, //[Required] CTFtime ID from https://www.ctftime.org/event/ID
+   rank: '1', //[Optional] Team ranking in CTF
+   year: '2022', //[Required] Year CTF Held
+   imgSrc: '/static/images/pastCTF/ID.png' //[Required] Logo from https://www.ctftime.org/event/ID
+}
+```
+
+2. Grab the CTF Logo from `https://www.ctftime.org/event/ID` and put it in [/static/images/pastCTF](/static/images/pastCTF) after renaming it to `ID.png`.
+
+### Adding Authors (Members)
+
+1. In [/data/authors](data/authors), add a new file called `authorname.md` containing the following format:
+
+```md
+---
+name: Your Name <!--- [Required] Your Name -->
+avatar: /static/images/avatars/authorname.png <!--- [Required] Please ensure it is a high resolution file greater than 75px x 75px -->
+occupation: Student <!--- [Required] Student, Teacher, Professor, etc. -->
+company: Organization Name <!--- [Required] Organization Name -->
+email: optional@optional.com <!--- [Optional] Email Address -->
+github: https://www.github.com <!--- [Optional] Github Account Link -->
+linkedin: https://www.linkedin.com <!--- [Optional] LinkedIn Account Link -->
+instagram: https://www.instagram.com <!--- [Optional] Instagram Account Link -->
+ctftime: https://www.ctftime.org <!--- [Optional] CTFtime Account Link -->
+homepage: https://www.yoursitename.com <!--- [Optional] Personal Website Link -->
+specialty: Web <!--- [Required] Web, Rev, Pwn, etc. -->
+role: Member <!--- [Required] President, Officer, Member, etc. All other entries will be sorted accordingly -->
+---
+```
+
+2. Put a high resolution png file (greater than 75px by 75px) in [/static/images/avatars] after renaming it to `authorname.png`.
+
+### Adding Blog Posts
+
+Refer to **[Sample posts](#sample-posts)** and **[Post](#post)**.
 Placeholder
 
 ## Sample posts

@@ -4,14 +4,15 @@ avatar: /static/images/avatars/default.png
 occupation: Student-Led Organization
 company: Bellevue College
 email: infosec@bellevuecollege.edu
-github: https://github.com/vincentczhou
+github: https://www.github.com/vincentczhou
 linkedin:
-instagram: 
-ctftime: 
+instagram:
+ctftime:
 homepage: https://www.bellevuecollege.edu/organizations/list/infosec-club
 specialty: Collab
 role: Officer
 ---
+
 The InfoSec Club is a group of Bellevue College students that share a passion for the information security field. We offer events and competitions that are fun, engaging, and informative. We also provide study help for any InfoSec-related classes.
 
 Our goal is to conduct and participate in infosec events and competitions as well as provide a community for security professionals, enthusiasts, and novices to network and support each other.
