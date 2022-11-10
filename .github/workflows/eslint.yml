@@ -32,7 +32,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npm run lint
+        run: npm run lintcheck
         
       - name: npm build
         run: npm run build
