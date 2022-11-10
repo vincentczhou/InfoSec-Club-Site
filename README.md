@@ -8,7 +8,7 @@ Built with [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nex
 
 ### Adding CTFs
 
-1. In [/data/CTFData.js](data/CTFdata.js), append a new entry to the end of `CTFData` in the following format:
+1. In [/data/CTFData.js](data/CTFData.js), append a new entry to the end of `CTFData` in the following format:
 
 ```javascript
 {
@@ -20,7 +20,7 @@ Built with [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nex
 }
 ```
 
-2. Grab the CTF Logo from `https://www.ctftime.org/event/ID` and put it in [/static/images/pastCTF](/static/images/pastCTF) after renaming it to `ID.png`.
+2. Grab the CTF Logo from `https://www.ctftime.org/event/ID` and put it in [/public/static/images/pastCTF](/public/static/images/pastCTF) after renaming it to `ID.png`.
 
 ### Adding Authors (Members)
 
@@ -43,7 +43,7 @@ role: Member <!--- [Required] President, Officer, Member, etc. All other entries
 ---
 ```
 
-2. Put a high resolution png file (greater than 75px by 75px) in [/static/images/avatars] after renaming it to `authorname.png`.
+2. Put a high resolution png file (greater than 75px by 75px) in [/public/static/images/avatars](public/static/images/avatars) after renaming it to `authorname.png`.
 
 ### Adding Blog Posts
 
