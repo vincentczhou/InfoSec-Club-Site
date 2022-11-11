@@ -44,7 +44,7 @@ export default function Members({ members }) {
                 name={d.frontMatter.name}
                 occupation={d.frontMatter.occupation}
                 avatar={d.frontMatter.avatar}
-                href={d.frontMatter.github}
+                href={d.frontMatter.homepage}
                 mdxSource={d.mdxSource}
                 frontMatter={d.frontMatter}
               />

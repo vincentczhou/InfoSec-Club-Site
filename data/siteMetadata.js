@@ -8,9 +8,9 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.bcinfosec.me',
   siteRepo: 'https://www.github.com/vincentczhou/InfoSec-Club-Site',
-  siteLogo: '/static/avatars/default.png',
-  image: '/static/avatars/default.png',
-  socialBanner: '/static/avatars/default.png',
+  siteLogo: '/static/images/avatars/default.png',
+  image: '/static/images/avatars/default.png',
+  socialBanner: '/static/images/avatars/default.png',
   email: 'infosec@bellevuecollege.edu.com',
   github: 'https://www.github.com/vincentczhou',
   twitter: '',

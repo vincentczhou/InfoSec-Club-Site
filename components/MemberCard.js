@@ -5,7 +5,7 @@ import Link from './Link'
 const MemberCard = ({ name, occupation, avatar, href, mdxSource, frontMatter }) => (
   <div
     className="md p-4 md:w-1/2"
-    style={{ position: 'relative', maxWidth: '544px', maxHeight: '544px' }}
+    style={{ position: 'relative', maxWidth: '444px', maxHeight: '544px' }}
   >
     <div
       className={`${
@@ -14,17 +14,17 @@ const MemberCard = ({ name, occupation, avatar, href, mdxSource, frontMatter }) 
     >
       {avatar &&
         (href ? (
-          <Link href={href} aria-label={`Link to ${name}`}>
-            <div
-              className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2"
-              style={{
-                position: 'relative',
-                Width: '500px',
-                Height: '500px',
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
+          <div
+            className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2"
+            style={{
+              position: 'relative',
+              Width: '500px',
+              Height: '500px',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <Link href={href} aria-label={`Link to ${name}`}>
               <Image
                 alt={name}
                 src={avatar}
@@ -33,8 +33,8 @@ const MemberCard = ({ name, occupation, avatar, href, mdxSource, frontMatter }) 
                 width={175}
                 height={175}
               />
-            </div>
-          </Link>
+            </Link>
+          </div>
         ) : (
           <div
             className="my-1 w-full overflow-hidden px-2 xl:my-1 xl:w-1/2 xl:px-2"
