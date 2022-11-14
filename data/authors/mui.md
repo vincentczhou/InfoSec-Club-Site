@@ -9,6 +9,6 @@ linkedin:
 instagram: 
 ctftime: 
 homepage: https://www.github.com/kmui2
-specialty: Coding
-role: Advisor
+specialty: Misc
+role: Guest
 ---
