@@ -1,6 +1,6 @@
 ---
 name: Kevin Mui
-avatar: /static/images/avatars/capoo-bugcat.gif
+avatar: /static/images/avatars/mui.gif
 occupation: Software Engineer
 company: CME Group
 email: kmui2@wisc.edu
