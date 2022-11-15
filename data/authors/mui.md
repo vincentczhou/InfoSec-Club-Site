@@ -1,14 +1,14 @@
---- 
-name: Mui
-avatar: /static/images/avatars/default.png 
-occupation: Software Engineer
-company: CME Group 
-email: kmui2@wisc.edu
-github: https://www.github.com/kmui2
-linkedin: 
-instagram: 
-ctftime: 
-homepage: https://www.github.com/kmui2
-specialty: Misc
-role: Guest
+---
+name: Kevin Mui
+avatar: /static/images/avatars/capoo-bugcat.gif
+occupation: Software Engineer
+company: CME Group
+email: kmui2@wisc.edu
+github: https://www.github.com/kmui2
+linkedin:
+instagram:
+ctftime:
+homepage: https://www.github.com/kmui2
+specialty: Misc,Crypto,Web,Reverse
+role: Guest
 ---
