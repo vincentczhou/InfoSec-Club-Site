@@ -27,6 +27,27 @@ const CTFData = [
     year: '2022',
     imgSrc: '/static/images/pastCTF/1740.png',
   },
+  {
+    name: 'ISITDTU CTF 2022 Quals',
+    id: 1757,
+    rank: '',
+    year: '2022',
+    imgSrc: '/static/images/pastCTF/1757.png',
+  },
+  {
+    name: 'Digital Overdoes 2022 Autumn CTF',
+    id: 1760,
+    rank: '',
+    year: '2022',
+    imgSrc: '/static/images/pastCTF/1760.png',
+  },
+  {
+    name: 'Square CTF 2022',
+    id: 1756,
+    rank: '',
+    year: '2022',
+    imgSrc: '/static/images/pastCTF/1756.png',
+  },
 ]
 
 export default CTFData
