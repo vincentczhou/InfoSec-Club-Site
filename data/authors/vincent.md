@@ -8,7 +8,7 @@ github: https://www.github.com/vincentczhou
 linkedin:
 instagram:
 ctftime:
-homepage:
+homepage: https://vincentczhou.github.io
 specialty: Web
 role: President
 ---

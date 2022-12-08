@@ -9,6 +9,6 @@ linkedin:
 instagram:
 ctftime:
 homepage: https://www.github.com/kmui2
-specialty: Crypto, Reverse, Web, Misc
+specialty: Crypto, Rev, Web, Misc
 role: Guest
 ---
