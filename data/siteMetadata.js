@@ -3,6 +3,7 @@ const siteMetadata = {
   author: 'BC InfoSec',
   dev: 'Vincent C.',
   headerTitle: 'Bellevue College InfoSec Club',
+  headerTitleShort: 'BC InfoSec Club',
   description: "Home to Bellevue College's CTF Team, ☕Black Matcha🍵 !",
   language: 'en-us',
   theme: 'system', // system, dark or light
