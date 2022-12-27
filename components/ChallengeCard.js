@@ -1,7 +1,8 @@
+import Link from './Link'
 import { useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
 
-const ChallengeCard = ({ id, name, author, category, difficulty, body }) => {
+const ChallengeCard = ({ id, name, author, category, difficulty, body, download }) => {
   const [dialogState, setDialogState] = useState(false)
   const handleDialogOpen = () => setDialogState(true)
   const handleDialogClose = () => setDialogState(false)
@@ -91,9 +92,42 @@ const ChallengeCard = ({ id, name, author, category, difficulty, body }) => {
                 <h3 className="mb-3 text-center text-lg leading-8 tracking-tight">
                   {category} | {difficulty} | {author}
                 </h3>
-                <h4 className="text-md mb-3 text-center leading-8 tracking-tight">{body}</h4>
+                <h4 className="text-md mb-3 text-center leading-8 tracking-tight">
+                  {body}
+                  {download
+                    ? Object.entries(download).map((d) => (
+                        <div key={d[0]}>
+                          <Link
+                            href={`/static/challenges/${id}/${d[1]}`}
+                            aria-label={`Link to ${d[0]}`}
+                          >
+                            <button
+                              className="flex-shrink-0 rounded border-4 border-teal-500 bg-teal-500 py-1 px-2 text-sm text-white hover:border-teal-700 hover:bg-teal-700"
+                              type="button"
+                            >
+                              {d[0]}
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="inline h-6 w-6"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                                />
+                              </svg>
+                            </button>
+                          </Link>
+                        </div>
+                      ))
+                    : null}
+                </h4>
               </div>
-              <form className="w-full max-w-sm" onSubmit={handleSubmit}>
+              <form className="w-full" onSubmit={handleSubmit}>
                 <div className="flex items-center border-b border-teal-500 py-2">
                   <input
                     className="mr-3 w-full appearance-none border-none bg-transparent py-1 px-2 leading-tight text-gray-700 focus:outline-none"

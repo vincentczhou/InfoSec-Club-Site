@@ -17,7 +17,7 @@ export default function Challenges() {
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {
-              'All these challenges are authored by ☕Black Matcha🍵 members! Flags are in the format BLACKMATCHA{...}!'
+              'All challenges are authored by ☕Black Matcha🍵 members! Flags are in the format BLACKMATCHA{...}!'
             }
           </p>
         </div>
@@ -32,6 +32,7 @@ export default function Challenges() {
                 category={d[1].category}
                 difficulty={d[1].difficulty}
                 body={d[1].body}
+                download={d[1].download}
               />
             ))}
           </div>
