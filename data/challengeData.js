@@ -1,4 +1,4 @@
-import Link from '@/components/Link'
+import siteMetadata from '@/data/siteMetadata'
 
 const challengeData = {
   1: {
@@ -8,7 +8,8 @@ const challengeData = {
     difficulty: 'Easy',
     body: <>Hmm... I wonder where the flag could be?</>,
     download: '',
-    flag: 'W3lcom3_t0_Bl4ck_M4tch4',
+    link: '',
+    flag: 'W3lcom3_t0_Bl4ck_M4tch4', // BLACKMATCHA{W3lcom3_t0_Bl4ck_M4tch4} It was right here all along!
   },
   2: {
     name: 'Xorry! I Broke Your Hard Drive!',
@@ -26,16 +27,27 @@ const challengeData = {
     download: {
       'encryptor.py': 'encryptor.py',
     },
+    link: '',
     flag: process.env.FLAG_2,
   },
-  // 3: {
-  //   name: 'Placeholder 2',
-  //   author: 'placeholder',
-  //   category: 'placeholder',
-  //   difficulty: 'placeholder',
-  //   body: 'placeholder',
-  //   flag: 'cool',
-  // },
+  3: {
+    name: 'DOMPurify Alternative',
+    author: 'Vincent C.',
+    category: 'Web',
+    difficulty: 'Easy',
+    body: (
+      <>
+        I stol- I mean I found a regular expression on StackExchange that is totally better than
+        DOMPurify! Goodbye malicious user input, my API is totally secure!
+      </>
+    ),
+    download: '',
+    link: {
+      Link: '/api/challenges/3',
+      Source: `${siteMetadata.siteRepo}/blob/master/pages/api/challenges/3/index.js`,
+    },
+    flag: process.env.FLAG_3,
+  },
 }
 
 export default challengeData

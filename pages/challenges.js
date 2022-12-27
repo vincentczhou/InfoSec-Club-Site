@@ -32,6 +32,7 @@ export default function Challenges() {
                 category={d[1].category}
                 difficulty={d[1].difficulty}
                 body={d[1].body}
+                link={d[1].link}
                 download={d[1].download}
               />
             ))}
