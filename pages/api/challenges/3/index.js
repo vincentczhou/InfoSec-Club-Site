@@ -12,7 +12,7 @@ export default function handler(req, res) {
     }
 
     if (input == "<script>alert('vulnerable')</script>") {
-      return res.status(200).json({ message: `The flag is: ${flag}` })
+      return res.status(200).json({ message: `The flag is: BLACKMATCHA{${flag}}` })
     }
 
     return res.status(200).json({ message: 'Okay.' })
