@@ -6,7 +6,7 @@ company: Bellevue College
 email:
 github:
 linkedin:
-instagram: https://www.instagram.com/krxlee/
+instagram: https://www.instagram.com/krxlee
 ctftime:
 homepage:
 specialty: Misc
