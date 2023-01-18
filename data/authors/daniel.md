@@ -6,7 +6,7 @@ company: Bellevue College
 email: danibrandao@icloud.com
 github: https://www.github.com/pqvsfu
 linkedin: https://www.linkedin.com/in/dsbrandao
-instagram: https://www.instagram.com/igobyisaa
+instagram:
 ctftime:
 homepage:
 specialty: Misc
