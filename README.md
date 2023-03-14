@@ -28,18 +28,18 @@ Built with [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nex
 
 ```md
 ---
-name: Your Name <!--- [Required] Your Name -->
-avatar: /static/images/avatars/authorname.png <!--- [Required] Please ensure it is a high resolution file greater than 75px x 75px -->
-occupation: Student <!--- [Required] Student, Teacher, Professor, etc. -->
-company: Organization Name <!--- [Required] Organization Name -->
-email: optional@optional.com <!--- [Optional] Email Address -->
-github: https://www.github.com <!--- [Optional] Github Account Link -->
-linkedin: https://www.linkedin.com <!--- [Optional] LinkedIn Account Link -->
-instagram: https://www.instagram.com <!--- [Optional] Instagram Account Link -->
-ctftime: https://www.ctftime.org <!--- [Optional] CTFtime Account Link -->
-homepage: https://www.yoursitename.com <!--- [Optional] Personal Website Link -->
-specialty: Web <!--- [Required] Web, Rev, Pwn, etc. -->
-role: Member <!--- [Required] President, Officer, Member, etc. All other entries will be sorted accordingly -->
+name: Your Name #[Required] Your Name
+avatar: /static/images/avatars/authorname.png #[Required] Please ensure it is a high resolution file greater than 75px x 75px
+occupation: Student #[Required] Student, Teacher, Professor, etc.
+company: Organization Name #[Required] Organization Name
+email: optional@optional.com #[Optional] Email Address
+github: https://www.github.com #[Optional] Github Account Link
+linkedin: https://www.linkedin.com #[Optional] LinkedIn Account Link
+instagram: https://www.instagram.com #[Optional] Instagram Account Link
+ctftime: https://www.ctftime.org #[Optional] CTFtime Account Link
+homepage: https://www.yoursitename.com #[Optional] Personal Website Link
+specialty: Web #[Required] Web, Rev, Pwn, etc.
+role: Member #[Required] President, Officer, Member, etc. All other entries will be sorted accordingly
 ---
 ```
 
@@ -49,6 +49,37 @@ role: Member <!--- [Required] President, Officer, Member, etc. All other entries
 
 Refer to **[Sample posts](#sample-posts)** and **[Post](#post)**.
 Placeholder
+
+### Adding Challenges
+
+1. In [/data/challengeData.js](data/challengeData.js), append a new entry to the end of `challengeData` in the following format:
+
+```javascript
+1: { //[Required] Challenge ID and Number
+   name: 'Challenge Name', //[Required] Name of Challenge
+   author: 'Vincent C.', //[Required] Challenge Author
+   category: 'Web', //[Required] Challenge Category
+   difficulty: 'Easy', //[Required] Challenge Difficulty
+   body: ( //[Required] Description of Challenge (React Fragment)
+   <>
+      Challenge Description
+   </>
+   ),
+   download: { //[Optional] Download Objects where "Link" is located at /public/static/challenges/ID/DOWNLOAD LINK (Object)
+      'Name': 'Link',
+   },
+   link: { //[Optional] Link Objects (Object)
+      Name: 'Link',
+   },
+   flag: process.env.FLAG_1, //[Required] Flag Stored in Environment Variables - process.env.FLAG_ID
+}
+```
+
+2. If the Challenge requires a `download`, place the corresponding content in [/public/static/challenges/ID](public/static/challenges).
+
+3. If the Challenge requires **visible** API/Endpoint usage, add a new handler file under [/pages/api/challenges/ID](pages/api/challenges). Corresponding `source` links should be formatted as `${siteMetadata.siteRepo}/blob/master/pages/api/challenges/ID/HANDLER.js`. If only one file is utilized, name it `index.js` and have the `link` entry point to `/api/challenges/ID`.
+
+4. Configure the private environment variables in the hosting service so that `process.env.FLAG_ID` contains the flag.
 
 ## Sample posts
 
