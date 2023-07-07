@@ -3,7 +3,7 @@ title: '[Special: Bug Hunting] RCE and SQL Injection! (HuskyMap)'
 date: '2023-3-24'
 lastmod: '2023-3-24'
 tags: ['writeup', 'other']
-draft: true
+draft: false
 summary: 'A vulnerability discovered! Is this a homework platform disguised as a CTF challenge?'
 authors: ['vincent']
 layout: PostLayout
@@ -17,9 +17,8 @@ Quiz Taking and Sanity Checks (test case validation for programming assignments)
 
 # Part 1: Discovery
 
-It was 5AM on Wednesday, and I had a calculus and biology exam on Friday and the ACT on Saturday. And just like any other student would
-with huge priorities looming ahead, the first thing I thought to do when I woke up that morning was procrastinate: by booting up my HuskyMap
-and looking for trouble! 😊
+It was 5AM on Wednesday, and with a calculus and biology exam on Friday and the ACT on Saturday, I did what any other student would do
+with huge priorities looming ahead: procrastinate by booting up my HuskyMap and looking for trouble! 😊
 
 The first thing I tried was testing for RCE through the sanity check system. Hijacking one of my java assignments, I appended this into the main method:
 
@@ -50,7 +49,7 @@ that my dead-end's were due to how the grader worked, but in the meantime, what 
 
 # Part 2: Reverse Shell Access
 
-After mapping out the directory tree, I looked at `cat /var/www/html/course/index.php` in particular, I noticed a particularly interesting chunk of code:
+After mapping out the directory tree, I looked at `cat /var/www/html/course/index.php`. In particular, I noticed a particularly interesting chunk of code:
 
 ```php
 <?php
