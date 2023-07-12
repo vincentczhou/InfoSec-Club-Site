@@ -1,14 +1,14 @@
 ---
-name: Ali
-avatar: /static/images/avatars/ali.png
+name: Haider A. Mirza
+avatar: /static/images/avatars/Haider.jpeg
 occupation: Student
 company: Bellevue College
 email:
 github:
-linkedin:
+linkedin: linkedin.com/in/itsmemirza
 instagram:
 ctftime:
-homepage:
-specialty: Net
+homepage: cybersnag.com
+specialty: 
 role: Officer
 ---
