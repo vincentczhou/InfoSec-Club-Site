@@ -10,5 +10,5 @@ instagram:
 ctftime:
 homepage: https://malucart.github.io
 specialty: Rev
-role: Officer
+role: Former Officer
 ---

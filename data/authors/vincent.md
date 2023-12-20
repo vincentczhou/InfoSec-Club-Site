@@ -10,5 +10,5 @@ instagram:
 ctftime:
 homepage: https://vincentczhou.github.io
 specialty: Web
-role: President
+role: Former President
 ---

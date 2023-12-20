@@ -7,10 +7,18 @@ import { PageSEO } from '@/components/SEO'
 function compare(a, b) {
   const rolenumber = {}
   rolenumber['President'] = 1
-  rolenumber['Officer'] = 2
-  rolenumber['Member'] = 3
-  const a_number = rolenumber[a.frontMatter.role]
-  const b_number = rolenumber[b.frontMatter.role]
+  rolenumber['Co-President'] = 2
+  rolenumber['Treasurer'] = 3
+  rolenumber['Secretary'] = 4
+  rolenumber['Officer'] = 5
+  rolenumber['Member'] = 10
+  rolenumber['Guest'] = 100
+  const a_number =
+    rolenumber[a.frontMatter.role.replace('Former ', '')] +
+    (a.frontMatter.role.includes('Former') ? 10 : 0)
+  const b_number =
+    rolenumber[b.frontMatter.role.replace('Former ', '')] +
+    (b.frontMatter.role.includes('Former') ? 10 : 0)
   return (
     (a_number == undefined ? Infinity : a_number) - (b_number == undefined ? Infinity : b_number)
   )

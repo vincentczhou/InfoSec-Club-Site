@@ -10,5 +10,5 @@ instagram:
 ctftime:
 homepage:
 specialty: Net
-role: Officer
+role: Former Officer
 ---

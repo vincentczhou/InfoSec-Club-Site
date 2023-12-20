@@ -10,5 +10,5 @@ instagram: https://www.instagram.com/krxlee
 ctftime:
 homepage:
 specialty: Misc
-role: Officer
+role: Former Officer
 ---

@@ -35,7 +35,7 @@ const CTFData = [
     imgSrc: '/static/images/pastCTF/1757.png',
   },
   {
-    name: 'Digital Overdoes 2022 Autumn CTF',
+    name: 'Digital Overdose 2022 Autumn CTF',
     id: 1760,
     rank: '',
     year: '2022',

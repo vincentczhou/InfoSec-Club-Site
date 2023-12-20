@@ -20,7 +20,7 @@ const siteMetadata = {
   linkedin: '',
   discord: 'https://www.discord.gg/YyZ4aRQBJx',
   instagram: '',
-  ctftime: 'https://www.ctftime.com',
+  ctftime: 'https://www.ctftime.org',
   homepage: 'https://www.bellevuecollege.edu/organizations/list/infosec-club',
   locale: 'en-US',
   analytics: {
