@@ -10,5 +10,5 @@ instagram:
 ctftime: 
 homepage: 
 specialty: Web
-role: Treasuer
+role: Treasurer
 ---
